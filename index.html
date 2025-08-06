@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Malik Zaid</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffafbd, #ffc3a0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p, #countdown {
+      font-size: 1.5rem;
+      margin: 10px 30px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    #malik-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid white;
+      object-fit: cover;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    }
+
+    #playBtn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    #playBtn:hover {
+      background-color: #e91e63;
+    }
+
+    #loveMessage {
+      font-size: 2rem;
+      margin-top: 40px;
+      display: none;
+      animation: pop 1s ease-out;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      animation: fall 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    #loveLetter {
+      display: none;
+      margin: 30px auto;
+      max-width: 600px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      backdrop-filter: blur(10px);
+    }
+
+    #slideshow {
+      display: none;
+      margin: 30px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+
+    #slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1s;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎂 Happy Birthday My Love ❤️ Malik Zaid 🎉</h1>
+  <img id="malik-photo" src="WhatsApp Image 2025-08-06 at 1.24.24 PM.jpeg" alt="Malik Zaid Photo" />
+  <p>May your day be filled with love, laughter, and unforgettable moments.</p>
+
+  <!-- Countdown Timer -->
+  <div id="countdown">⏳ Countdown: Loading...</div>
+
+  <!-- Button to start surprise -->
+  <button id="playBtn">Play Surprise 🎁</button>
+
+  <!-- Hidden Messages -->
+  <div id="loveMessage">💖 I love you more every day. Happy Birthday, Malik! 🥰</div>
+
+  <!-- Love Letter -->
+  <div id="loveLetter">
+    Dear Malik,<br><br>
+    On your special day, I want you to know how much you mean to me. Your smile lights up my darkest days, and your love fills my world with joy. I’m so lucky to have you in my life. Thank you for being you — kind, strong, sweet, and loving. May all your dreams come true this year. ❤️<br><br>
+    With all my love,<br>
+    Your forever person 💌
+  </div>
+
+  <!-- Slideshow -->
+  <div id="slideshow">
+    <img src="photo3.jpg.jpeg" alt="Malik 1" />
+    <img src="photo2.jpg.jpeg" alt="Malik 2" style="display:none;" />
+    <img src="WhatsApp Image 2025-08-06 at 10.56.22 AM.jpeg" alt="Malik 3" style="display:none;" />
+  </div>
+
+  <!-- Music -->
+  <audio id="birthdayMusic" src="birthday-music.mp3"></audio>
+
+  <script>
+    const playBtn = document.getElementById('playBtn');
+    const loveMessage = document.getElementById('loveMessage');
+    const loveLetter = document.getElementById('loveLetter');
+    const music = document.getElementById('birthdayMusic');
+    const slideshow = document.getElementById('slideshow');
+    const countdown = document.getElementById('countdown');
+
+    playBtn.addEventListener('click', () => {
+      loveMessage.style.display = 'block';
+      loveLetter.style.display = 'block';
+      slideshow.style.display = 'block';
+      music.play();
+      launchConfetti();
+      startSlideshow();
+    });
+
+    function launchConfetti() {
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = getRandomColor();
+        confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 5000);
+      }
+    }
+
+    function getRandomColor() {
+      const colors = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#03a9f4', '#4caf50', '#ff9800', '#ffeb3b'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Slideshow Logic
+    let currentSlide = 0;
+    function startSlideshow() {
+      const images = slideshow.querySelectorAll('img');
+      setInterval(() => {
+        images[currentSlide].style.display = 'none';
+        currentSlide = (currentSlide + 1) % images.length;
+        images[currentSlide].style.display = 'block';
+      }, 3000);
+    }
+
+    // Countdown Timer Logic (Set birthday date here)
+    const targetDate = new Date("August 7, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdown.innerText = "🎉 It's Malik's Birthday Today! 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerText = `⏳ Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
+
+       
